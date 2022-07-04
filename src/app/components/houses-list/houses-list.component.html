@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <h2 class="h2">Houses List</h2>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Description</th>
+            <th scope="col">Rooms</th>
+            <th scope="col">Occupied</th>
+            <th class="text-center" scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let house of Houses; let i = index">
+            <th scope="row">{{house._id}}</th>
+            <td>{{house.name}}</td>
+            <td>{{house.price}}</td>
+            <td>{{house.description}}</td>
+            <td>{{house.rooms}}</td>
+            <td>{{house.occupied}}</td>
+            <td class="text-center">
+              <button class="btn btn-sm btn-primary" routerLink="/edit-house/{{house._id}}">Edit</button>
+              <button class="btn btn-sm btn-danger" (click)="delete(house._id, i)">Delete</button>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
